@@ -3,21 +3,33 @@ class BinaryTreeNode {
     this.value = value;
     this.left = null;
     this.right = null;
-  }
+  } }
 
-  add(node) {
-    // compare node.value to current.value
-    // greater than ?
-    //if yes check right node.
-    //right node null? assign
-    function search(node, current) {
-      console.log("node", node, "current", current);
-      if (node.val > current.val) {
+  class BinaryTree {
+    constructor(num) {
+      this.root = new BinaryTreeNode(num);
+    }
+ 
+insert(val){
+  if (!this.root) {
+    this.root = new BinaryTreeNode(val);
+    return this;
+    } else {
+      this.add(this.root, new BinaryTreeNode(val));
+    } 
+ 
+}
+  add(current, node) {
+    //new node left or right
+      if (node.val > root.val) {
+        //not null then check if left or right
         //go right
         //check null
         if (!current.right) {
-          current.right = node.val;
-          return current;
+          current.right = node;
+        } else {
+          this.add(current.right, node);
+        }
         }
         search(node, current.right);
         //null? assign
@@ -32,7 +44,7 @@ class BinaryTreeNode {
     // Implement me!
     return search(node, this);
   }
-}
+} 
 
 const B = new BinaryTreeNode("B");
 const A = new BinaryTreeNode("A");
