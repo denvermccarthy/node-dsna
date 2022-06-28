@@ -10,13 +10,20 @@ class LinkedList {
     this.head = new Node(val);
   }
 
-  add() {}
+  add(val) {
+    let current = this.head;
+    while (current.next) {
+      current = current.next;
+    }
+
+    current.next = new Node(val);
+  }
   removeTail() {
     //check for next next
     //a b c d
     // set temp next to null
     let temp = this.head;
-    while (temp.next) {
+    while (temp.next.next != null) {
       temp = temp.next;
     }
     temp.next = null;
@@ -34,13 +41,13 @@ class LinkedList {
   }
 }
 
-const list = new LinkedList("A");
+const list = new LinkedList('A');
 console.log(list.head);
-list.add("B");
+list.add('B');
 console.log(list.getList());
-list.add("C");
+list.add('C');
 console.log(list.getList());
-// list.removeTail();
+list.removeTail();
 console.log(list.getList());
 
 module.exports = { LinkedList };
