@@ -10,10 +10,17 @@ class LinkedList {
     this.head = new Node(val);
   }
 
-  add(){
-
+  add() {}
+  removeTail() {
+    //check for next next
+    //a b c d
+    // set temp next to null
+    let temp = this.head;
+    while (temp.next) {
+      temp = temp.next;
+    }
+    temp.next = null;
   }
-  removeTail(){}
 
   getList() {
     const listArr = [];
@@ -32,6 +39,8 @@ console.log(list.head);
 list.add("B");
 console.log(list.getList());
 list.add("C");
+console.log(list.getList());
+// list.removeTail();
 console.log(list.getList());
 
 module.exports = { LinkedList };
